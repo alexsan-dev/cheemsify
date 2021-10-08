@@ -1,5 +1,6 @@
 function cheemsify(text) {
   const holyWords = {
+    ansiedad: "amsiedad",
     burger: "burmger",
     bad: "bamd",
     batman: "bamtman",

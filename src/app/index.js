@@ -10,15 +10,17 @@ import { useEffect } from "react";
 // COMPONENTES
 import Cheems from "../components/cheems";
 
+// /.netlify/functions/cheemsify
+
 const App = () => {
   useEffect(() => {
-    fetch("https://cheemsify.netlify.app/.netlify/functions/cheemsify", {
+    fetch("/.netlify/functions/cheemsify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        text: "Hola",
+        text: "Ya me dio ansiedad",
       }),
     })
       .then((data) => data.json())
