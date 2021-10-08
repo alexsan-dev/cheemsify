@@ -17,6 +17,13 @@ export const cheemsify = (text) => {
 };
 
 exports.handler = async (event) => {
+  // HEADERS
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+  };
+
   // GET
   if (event.httpMethod.toUpperCase() === "POST") {
     const { text } = JSON.parse(event.body);
@@ -24,16 +31,19 @@ exports.handler = async (event) => {
       const cheemsifiedText = cheemsify(text);
       return {
         statusCode: 200,
+        headers,
         body: JSON.stringify({ message: "Success", cheemsifiedText }),
       };
     }
     return {
       statusCode: 500,
+      headers,
       body: JSON.stringify({ message: "Empty string" }),
     };
   } else {
     return {
       statusCode: 405,
+      headers,
       body: JSON.stringify({ message: "Method not allowed" }),
     };
   }

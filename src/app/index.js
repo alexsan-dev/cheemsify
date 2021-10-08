@@ -22,7 +22,8 @@ const App = () => {
       },
     })
       .then((data) => data.json())
-      .then(({ cheemsifiedText }) => console.log(cheemsifiedText));
+      .then(({ cheemsifiedText }) => console.log(cheemsifiedText))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
