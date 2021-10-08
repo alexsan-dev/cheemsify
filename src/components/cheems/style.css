@@ -1,0 +1,176 @@
+#cheems {
+  position: absolute;
+  bottom: -90px;
+  right: 0;
+  width: 440px;
+  height: 440px;
+  pointer-events: none;
+}
+
+#cheems > p {
+  transform: translatey(0px);
+  text-align: left;
+  font-weight: bold;
+  font-size: 15px;
+  color: #774f38;
+  background-color: #ece5ce;
+  padding: 20px 30px;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 110%;
+  right: 0px;
+  margin-right: 60%;
+  width: 450px;
+  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cheems > p:after {
+  transform: translatey(0px);
+  -webkit-animation: float2 5s ease-in-out infinite;
+  animation: float2 5s ease-in-out infinite;
+  content: ".";
+  font-weight: bold;
+  -webkit-text-fill-color: #ece5ce;
+  text-shadow: 22px 22px 5px rgba(0, 0, 0, 0.1);
+  text-align: right;
+  font-size: 55px;
+  width: 55px;
+  height: 11px;
+  line-height: 30px;
+  border-radius: 15px;
+  background-color: #ece5ce;
+  position: absolute;
+  display: block;
+  bottom: -30px;
+  right: 0;
+  box-shadow: 22px 22px 5px rgba(0, 0, 0, 0.1);
+  z-index: -2;
+}
+
+#cheems > p > span {
+  font-style: italic;
+}
+
+@-webkit-keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+@-webkit-keyframes float2 {
+  0% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+  55% {
+    transform: translatey(-20px);
+  }
+  60% {
+    line-height: 10px;
+  }
+  100% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+}
+@keyframes float2 {
+  0% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+  55% {
+    transform: translatey(-20px);
+  }
+  60% {
+    line-height: 10px;
+  }
+  100% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+}
+
+#cheems > p > b,
+#cheems > p > span {
+  display: block;
+  margin: 0;
+}
+
+#cheems > p > b {
+  font-size: 1.2em;
+}
+
+#cheems > p > span {
+  margin-top: 5px;
+  font-size: 1.1em;
+}
+
+#cheems > #dog {
+  width: 100%;
+  filter: brightness(110%) drop-shadow(30px 10px 4px rgba(0, 0, 0, 0.3));
+  height: 100%;
+}
+
+#cheems > #loading {
+  position: absolute;
+  z-index: 2;
+  right: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+@keyframes dialog {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translatey(0px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translatey(0px);
+  }
+}
+
+@keyframes moves {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animDialog {
+  animation: dialog 0.2s ease-in-out 1;
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.move {
+  animation: moves 1s ease-in-out 1 alternate;
+}
