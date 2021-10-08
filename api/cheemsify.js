@@ -28,7 +28,7 @@ exports.handler = async (event, _ctx, callback) => {
   // GET
   if (event.httpMethod.toUpperCase() === "POST") {
     const { text } = JSON.parse(event.body);
-    if (text.length() > 0) {
+    if (text.length > 0) {
       const cheemsifiedText = cheemsify(text);
       callback(null, {
         statusCode: 200,
