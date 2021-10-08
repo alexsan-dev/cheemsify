@@ -4,10 +4,27 @@ import React from "react";
 // ESTILOS
 import "./style.css";
 
+// REACT
+import { useEffect } from "react";
+
 // COMPONENTES
 import Cheems from "../components/cheems";
 
 const App = () => {
+  useEffect(() => {
+    fetch("https://cheemsify.netlify.app/.netlify/functions/cheemsify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        text: "Hola",
+      },
+    })
+      .then((data) => data.json())
+      .then(({ cheemsifiedText }) => console.log(cheemsifiedText));
+  }, []);
+
   return (
     <main>
       <div id="info">
