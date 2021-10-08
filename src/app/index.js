@@ -17,9 +17,9 @@ const App = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
+      body: JSON.stringify({
         text: "Hola",
-      },
+      }),
     })
       .then((data) => data.json())
       .then(({ cheemsifiedText }) => console.log(cheemsifiedText))
