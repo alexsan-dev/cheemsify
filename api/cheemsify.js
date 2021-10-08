@@ -16,10 +16,11 @@ const cheemsify = (text) => {
   return cheemsifiedWordList.join(" ");
 };
 
-exports.handler = async (event) => {
+exports.handler = async (event, _ctx, callback) => {
   // HEADERS
   const headers = {
     "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Allow-Methods": "POST",
   };
@@ -29,22 +30,22 @@ exports.handler = async (event) => {
     const { text } = JSON.parse(event.body);
     if (text.length() > 0) {
       const cheemsifiedText = cheemsify(text);
-      return {
+      callback(null, {
         statusCode: 200,
         headers,
         body: JSON.stringify({ message: "Success", cheemsifiedText }),
-      };
+      });
     }
-    return {
+    callback(null, {
       statusCode: 500,
       headers,
       body: JSON.stringify({ message: "Empty string" }),
-    };
+    });
   } else {
-    return {
+    callback(null, {
       statusCode: 405,
       headers,
       body: JSON.stringify({ message: "Method not allowed" }),
-    };
+    });
   }
 };
