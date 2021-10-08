@@ -5,10 +5,10 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 
 // ASSETS
-import Blob1 from "../../assets/blob1.svg";
-import Blob2 from "../../assets/blob2.svg";
 import CheemsImage from "../../assets/cheems.png";
 import Loading from "../../assets/loading.gif";
+import Blob1 from "../../assets/blob1.svg";
+import Blob2 from "../../assets/blob2.svg";
 
 const Cheems = ({ text, animate, loading, name }) => {
   const [dialog, setDialog] = useState("");

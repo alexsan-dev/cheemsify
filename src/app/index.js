@@ -4,34 +4,18 @@ import React from "react";
 // ESTILOS
 import "./style.css";
 
-// REACT
-import { useEffect } from "react";
-
 // COMPONENTES
 import Cheems from "../components/cheems";
 
-// /.netlify/functions/cheemsify
+// APIS
+// https://cheemsify.netlify.app/.netlify/functions/cheemsify
+// https://cheemsify.netlify.app/.netlify/functions/phrase
 
 const App = () => {
-  useEffect(() => {
-    fetch("/.netlify/functions/cheemsify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text: "Ya me dio ansiedad",
-      }),
-    })
-      .then((data) => data.json())
-      .then(({ cheemsifiedText }) => console.log(cheemsifiedText))
-      .catch((err) => console.error(err));
-  }, []);
-
   return (
     <main>
       <div id="info">
-        <h1>Chemsificador v1</h1>
+        <h1>Cheemsificador v1</h1>
         <p>Chemsificar palabras y frases aleatorias</p>
       </div>
       <form>

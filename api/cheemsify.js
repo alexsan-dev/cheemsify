@@ -1,22 +1,12 @@
-function cheemsify(text) {
+const cheemsify = (text) => {
   const holyWords = {
     ansiedad: "amsiedad",
     burger: "burmger",
-    bad: "bamd",
     batman: "bamtman",
     cheese: "cheems",
     cheems: "cheems",
     cheeseburger: "cheemsburger",
     doge: "domge",
-    female: "f*male",
-    history: "himstory",
-    nigger: "n-word",
-    nigga: "n-word",
-    retard: "remtard",
-    woman: "w*man",
-    women: "w*men",
-    walter: "walmter",
-    motherfucker: "momtherfumcker",
   };
 
   text = text.replace(/(\r\n|\n|\r)/gm, " ");
@@ -44,23 +34,17 @@ function cheemsify(text) {
       }
     }
 
-    if (holyWords[word]) {
-      word = holyWords[word];
-    } else {
-      word = cheemsAlgorithm(word);
-    }
-
-    if (needLastCharater) {
-      word = word + lastChar;
-    }
+    if (holyWords[word]) word = holyWords[word];
+    else word = cheemsAlgorithm(word);
+    if (needLastCharater) word = word + lastChar;
 
     cheemedText[i] = word;
   }
 
   return cheemedText.join(" ");
-}
+};
 
-function cheemsAlgorithm(word) {
+const cheemsAlgorithm = (word) => {
   if (word.length < 4) return word;
 
   let vowels = ["a", "e", "i", "o", "u"];
@@ -94,7 +78,6 @@ function cheemsAlgorithm(word) {
         !vowels.includes(next)
       ) {
         char = char + "m";
-
         addedM = true;
       }
     }
@@ -103,9 +86,9 @@ function cheemsAlgorithm(word) {
   }
 
   return newWord.join("");
-}
+};
 
-exports.handler = async (event, _ctx) => {
+exports.handler = async (event) => {
   // HEADERS
   const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -114,7 +97,7 @@ exports.handler = async (event, _ctx) => {
     "Access-Control-Allow-Methods": "POST",
   };
 
-  // GET
+  // POST
   if (event.httpMethod.toUpperCase() === "POST") {
     const { text } = JSON.parse(event.body);
     if (text.length > 0) {
