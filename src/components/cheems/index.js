@@ -15,9 +15,7 @@ const Cheems = ({ text, animate, loading, name }) => {
   const [move, setMove] = useState("");
 
   useEffect(() => {
-    if (animate) {
-      setMove("move");
-    }
+    if (animate) setMove("move");
   }, [animate]);
 
   const endMove = () => setMove("notMove");
