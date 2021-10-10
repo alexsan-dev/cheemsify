@@ -7,8 +7,6 @@ import "./style.css";
 // COMPONENTES
 import Cheems from "../components/cheems";
 
-import { delay } from "../utils/tools";
-
 // APIS
 // https://cheemsify.netlify.app/.netlify/functions/cheemsify
 // https://cheemsify.netlify.app/.netlify/functions/phrase
