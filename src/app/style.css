@@ -60,14 +60,14 @@ form > input:focus {
   border-color: #fbae3d;
 }
 
-form > div {
+form > #actions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-top: 20px;
 }
 
-form > div > button {
+form > #actions > button {
   display: block;
   appearance: none;
   display: flex;
@@ -83,18 +83,71 @@ form > div > button {
   font-weight: bold;
 }
 
-form > div > button:first-of-type {
+form > #actions > button:first-of-type {
   border: 2px solid #fbae3d;
   background: transparent;
   color: rgba(255, 255, 255, 0.8);
 }
 
-form > div > button:last-of-type {
+form > #actions > button:last-of-type {
   margin-left: 20px;
   background: hsl(36, 96%, 40%);
   color: rgba(255, 255, 255, 0.8);
 }
 
-form > div > button > span {
+form > #actions > button > span {
   margin-right: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+  main {
+    max-height: 100%;
+    overflow: scroll;
+  }
+
+  main::after {
+    display: none;
+  }
+
+  form {
+    position: relative;
+    background-color: #001220;
+    margin: 650px auto 0 auto;
+    z-index: 100;
+    padding: 50px;
+    width: 100%;
+    max-width: 490px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  #blob1,
+  #blob2 {
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  form {
+    font-size: 0.9em;
+    padding: 30px;
+    margin-top: 670px;
+  }
+
+  form > #actions {
+    flex-direction: column;
+  }
+
+  form > #actions > button {
+    width: 100%;
+  }
+
+  form > #actions > button:last-of-type {
+    margin-top: 15px;
+    margin-left: 0;
+  }
+
+  main {
+    padding: 30px;
+  }
 }

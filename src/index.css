@@ -43,3 +43,31 @@ main::after {
   z-index: 2;
   pointer-events: none;
 }
+
+.bmc-btn-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 20px 0px;
+  z-index: 100;
+  transform: scale(0.8);
+}
+
+@media screen and (max-width: 1440px) {
+  body {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    padding: 0px;
+    height: 100vh;
+  }
+
+  #root {
+    display: block;
+    justify-content: unset;
+    align-items: unset;
+  }
+}

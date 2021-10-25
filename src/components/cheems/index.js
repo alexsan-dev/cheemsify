@@ -42,7 +42,7 @@ const Cheems = ({ text, animate, loading, name }) => {
             width: text.length > 20 ? "450px" : "300px",
           }}
         >
-          <b>{name} dice:</b>
+          <b>{name} says:</b>
           {text && <span>- "{text}"</span>}
         </p>
         {loading && <img src={Loading} alt="Loading" id="loading" />}
@@ -59,7 +59,7 @@ const Cheems = ({ text, animate, loading, name }) => {
 };
 
 Cheems.defaultProps = {
-  text: "Ya me dio amsiedad",
+  text: "I want a burmger",
   animate: true,
   loading: false,
   name: "Cheems",

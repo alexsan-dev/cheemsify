@@ -1,5 +1,5 @@
 // REACT
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 // ESTILOS
 import "./style.css";
@@ -14,6 +14,9 @@ import { delay } from "../utils/tools";
 // https://cheemsify.netlify.app/.netlify/functions/phrase
 
 const App = () => {
+  // REFERENCIAS
+  const mainRef = useRef(null);
+
   // DATOS DE FORMULARIO
   const [datos, setDatos] = useState({
     text: "",
@@ -23,7 +26,7 @@ const App = () => {
   // DATOS DE CHEEMS
   const [cheems, setCheems] = useState({
     name: "Cheems",
-    text: "Ya me dio amsiedad",
+    text: "I want a burmger",
     animate: false,
     loading: false,
   });
@@ -41,6 +44,10 @@ const App = () => {
 
     // EVITAR QUE EL FORMULARIO SE RECARGUE
     ev.preventDefault();
+
+    // SCROLL
+    if (mainRef.current)
+      mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
 
     delay(async () => {
       // PETICION PARA CHEEMSIFICAR LOS TEXTOS
@@ -84,34 +91,34 @@ const App = () => {
   };
 
   return (
-    <main>
-      <div id="info">
-        <h1>Cheemsificador v1</h1>
-        <p>Chemsificar palabras y frases aleatorias</p>
-      </div>
+    <main ref={mainRef}>
       <form onSubmit={eventoEnviar}>
+        <div id="info">
+          <h1>Cheemsify v1</h1>
+          <p>Cheemsify anything you want, and have fun.</p>
+        </div>
         {/* INPUTS */}
         <input
           name="name"
           onChange={eventoTexto}
-          placeholder="Nombra a tu cheems"
+          placeholder="Name your cheems"
         />
         <textarea
           name="text"
           value={datos.text}
           onChange={eventoTexto}
-          placeholder="Escribe aqui tu frase..."
+          placeholder="Write your phrase..."
         />
 
         {/* BOTONES */}
-        <div>
+        <div id="actions">
           <button type="button" onClick={obtenerFrase}>
             <span className="material-icons">shuffle</span>
-            Frase aleatoria
+            Random phrase
           </button>
           <button type="submit">
             <span className="material-icons">send</span>
-            Chemsificar
+            Cheemsify
           </button>
         </div>
       </form>
